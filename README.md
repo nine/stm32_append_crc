@@ -12,16 +12,15 @@ CRC32 Parameter:
 ### Create Binary with a Atollic TrueSTUDIO 
 
 Add following commands under "C/C++ Build" -> "Settings" -> "Build Steps" -> "Post Build Steps"
-<pre>
+```
 arm-atollic-eabi-objcopy -O binary ${BuildArtifactFileBaseName}.elf Application.bin;
 stm32_append_crc.exe -p -s 256k -f Application.bin;
 arm-atollic-eabi-objcopy -I binary -O ihex --change-addresses 0x08060000 Application.bin Application.hex
-</pre>
+```
 
 ### Test Integrity of Binary Data
 
-<pre>
-
+```
 #define APPLICATION_FLASH_ADDR 0x08060000
 #define APPLICATION_FLASH_LEN  0x00020000
 #define CRC_OK 0
@@ -42,17 +41,17 @@ uint32_t flashApplicationCrcCheck() {
 
 	return crc;
 }
-</pre>
+```
 
 Example Call:
-<pre>
+```
 uint32_t crc32 = CRC_OK;
 crc32 = flashApplicationCrcCheck();
 
 if (crc32 == CRC_OK) {
 	// do some stuff...
 }
-</pre>
+```
 
 
 
