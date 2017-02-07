@@ -20,7 +20,7 @@ arm-atollic-eabi-objcopy -I binary -O ihex --change-addresses 0x08060000 Applica
 
 ### Test Integrity of Binary Data
 
-```
+```C++
 #define APPLICATION_FLASH_ADDR 0x08060000
 #define APPLICATION_FLASH_LEN  0x00020000
 #define CRC_OK 0
@@ -44,7 +44,7 @@ uint32_t flashApplicationCrcCheck() {
 ```
 
 Example Call:
-```
+```C++
 uint32_t crc32 = CRC_OK;
 crc32 = flashApplicationCrcCheck();
 
