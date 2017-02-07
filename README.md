@@ -1,8 +1,8 @@
 # stm32_append_crc
 
-This program can be used to append a CRC32 checksum compatible STM32 ARM Cortex processors to binary images.
+This program can be used to protect STM32 application binaries with a CRC32 checksum compatible STM32 ARM Cortex processors.
 
-CRC32 Parameter:
+STM32 CRC32 Parameter:
 - Polynomial: 0x04C11DB7
 - Initial value: 0xFFFFFFFF
 
